@@ -1,0 +1,122 @@
+// Typography
+body {
+  font-family: 'Montserrat', helvetica, sans-serif; // critical
+  font-size: 16px;  // establish rem basis
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.f_smallest {
+  font-size: 12px;
+}
+
+.f_small {
+  font-size: 14px;
+}
+
+.f_large {
+  font-size: 18px;
+}
+
+.f_larger {
+  font-size: 20px;
+}
+
+.f_largest {
+  font-size: 24px;
+}
+
+
+// Color
+  // Default to light unless dark is preferred
+
+body {
+  background-color: #fff;
+  color: $c_dark-base;
+
+  a {
+    color: $c_primary-dark;
+
+    &:hover {
+      color: $c_accent-dark;
+    }
+
+    @media print {
+      border-bottom: 1px dotted $c_primary-dark;
+    }
+
+  }
+
+}
+
+
+// Main Container
+main {
+  padding: 0.5rem;
+  position: relative;
+}
+
+
+// Buttons
+*[class^="btn_"] {
+  background-color: $c_primary-dark;
+  border-radius: 2em;
+  color: #fff;
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.75em 1.25em;
+  text-decoration: none;
+}
+
+// Primary CTA
+.cta-container {
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 12px;
+
+  @media print {
+    display: none;
+  }
+
+}
+
+
+// PDF Download
+.pdf-download {
+  float: right;
+  padding: 1rem;
+
+  @media print {
+    display: none;
+  }
+
+}
+
+
+// Quotes
+blockquote::before {
+  content: open-quote;
+}
+blockquote::after {
+  content: close-quote;
+}
+blockquote {
+  quotes: "“" "”" "‘" "’";
+  text-indent: -0.45em;
+}
+
+@supports ( hanging-punctuation: first) {
+
+  blockquote {
+    text-indent: 0;
+    hanging-punctuation: first;
+  }
+
+}
+
+
+// Sections
+section {
+  margin-bottom: 1.5rem;
+}

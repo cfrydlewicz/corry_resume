@@ -1,0 +1,20 @@
+{
+  "name": "Corry Frydlewicz's Resume",
+  "description": "Styling SASS for Corry's HTML Resume",
+  "version": "1.0.0",
+  "repository": "https://github.com/cfrydlewicz/corry_resume",
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-autoprefixer": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-dev-update": "*",
+    "grunt-sass": "*",
+    "node-sass": "*"
+  },
+  "dependencies": {
+    "autoprefixer": "*",
+    "load-grunt-tasks": "*"
+  }
+}

@@ -1,0 +1,70 @@
+// Icons - https://icomoon.io/app/
+
+@font-face {
+  font-display: swap;
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  src: url('assets/fonts/icomoon/icomoon.ttf?byte2f') format('truetype'),
+       url('assets/fonts/icomoon/icomoon.woff?byte2f') format('woff'),
+       url('assets/fonts/icomoon/icomoon.svg?byte2f#icomoon') format('svg');
+}
+
+@mixin icomoon {
+  display: inline-block;
+  font-family: 'icomoon';
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+}
+
+// define each icon (assume \e)
+$icons: (
+  arrow-down: dbf,
+  arrow-left: dc3,
+  arrow-right: dbb,
+  arrow-up: db7,
+  chat: ac5,
+  calendar: a62,
+  checkbox: e6e,
+  checkbox-unchecked: e6f,
+  checkmark: d6f,
+  code: ecd,
+  close: d6c,
+  discord: ac5,
+  exit: d7b,
+  gdrive: eee,
+  github: f0f,
+  heart: cec,
+  home: 901,
+  linkedin: f28,
+  mail: a34,
+  mastodon: ef5,
+  minus: d5c,
+  nophone: a1e,
+  plus: d5b,
+  rss: efb,
+  search: b30,
+  share: ec8,
+  shopping: a06,
+  stackoverflow: f2f,
+  star: ce5,
+  warning: d50,
+  wiki: f27,
+  wordpress: f13
+);
+@mixin icon-definitions {
+  @each $label, $hex in $icons {
+    &#{$label}::before,
+    &#{$label}--after::after {
+      @include icomoon;
+      content: #{'"\\e' + $hex + '"'};
+    }
+  }
+}
+.i_ {
+  @include icon-definitions;
+}
