@@ -6,6 +6,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+
 .f_smallest {
   font-size: 12px;
 }
@@ -20,10 +25,37 @@ body {
 
 .f_larger {
   font-size: 20px;
+  margin-bottom: 0.5em;
 }
 
 .f_largest {
   font-size: 24px;
+  margin-bottom: 0.5em;
+}
+
+.hidden-keywords {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  font-style: italic;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal;
+
+  &:focus {
+    background-color: #eee;
+    clip: auto;
+    clip-path: none;
+    display: inline;
+    height: auto;
+    position: relative;
+    width: auto;
+  }
+
 }
 
 
@@ -57,6 +89,29 @@ main {
 }
 
 
+// Lists
+li {
+  line-height: 1.25;
+  margin-bottom: 0.75em;
+}
+
+ul {
+  margin-bottom: 1em;
+  padding: 0 0 0 1.75em;
+
+  &.flex-list {
+    display: flex;
+    flex-flow: row wrap;
+
+    li {
+      margin: 0 1.75em 0 0;
+    }
+
+  }
+
+}
+
+
 // Buttons
 *[class^="btn_"] {
   background-color: $c_primary-dark;
@@ -66,6 +121,13 @@ main {
   font-weight: 600;
   padding: 0.75em 1.25em;
   text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $c_accent;
+    color: #fff;
+  }
+
 }
 
 // Primary CTA
@@ -94,6 +156,60 @@ main {
 }
 
 
+// Details Expanders
+details {
+  margin: 1em 0;
+
+  summary {
+    align-items: start;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 0.5em;
+    justify-content: space-between;
+    list-style: none;
+    margin-bottom: 0.5em;
+
+    &::before {
+      content: '▶︎';
+      width: 1em;
+      flex-shrink: 0;
+      transition: 0.3s;
+    }
+
+    &:hover {
+
+      &::before {
+        color: $c_accent;
+      }
+
+    }
+
+    * {
+      display: inline;
+    }
+
+    > * {
+      padding: 0;
+      width: calc(100% - 2em);
+    }
+
+  }
+
+  &[open] > summary::before {
+    transform: rotate(90deg);
+    transform-origin: 40% 45% 0;
+  }
+
+  // consistent indentation
+  summary > div,
+  div[itemprop="description"] {
+    padding-left: 2em;
+  }
+
+}
+
+
 // Quotes
 blockquote::before {
   content: open-quote;
@@ -117,6 +233,20 @@ blockquote {
 
 
 // Sections
+header {
+  margin-bottom: 1.5rem;
+}
+
 section {
   margin-bottom: 1.5rem;
+
+  &.work-experience {
+
+    h4 {
+      display: flex;
+      justify-content: space-between;
+    }
+
+  }
+
 }
