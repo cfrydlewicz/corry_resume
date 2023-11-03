@@ -52,6 +52,14 @@ strong {
   white-space: nowrap;
 }
 
+.not-print {
+
+  @media print {
+    display: none !important;
+  }
+
+}
+
 .hidden-keywords {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
