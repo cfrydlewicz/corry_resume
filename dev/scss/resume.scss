@@ -392,6 +392,10 @@ section {
 
   &.skills {
 
+    @media print {
+      display: none;
+    }
+
     summary {
       gap: 1em;
     }
