@@ -4,6 +4,11 @@ body {
   font-size: 16px;  // establish rem basis
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  @media print {
+    font-size: 11pt;
+  }
+
 }
 
 p,
@@ -12,6 +17,16 @@ h1,
 h2,
 h3 {
   max-width: 70ch;
+}
+
+p,
+li {
+  //font-size: 1rem;
+
+  @media print {
+    font-size: 10pt;
+  }
+
 }
 
 p {
@@ -25,25 +40,40 @@ strong {
 
 .f_smallest {
   font-size: 12px;
+
+  @media print {
+    font-size: 8pt;
+  }
+
 }
 
 .f_small {
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .f_large {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
+
+  @media print {
+    font-size: 12pt;
+  }
+
 }
 
 .f_larger {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 0.5em;
+
+  @media print {
+    font-size: 14pt;
+  }
+
 }
 
 .f_largest {
-  font-size: 32px;
+  font-size: 2rem;
   font-weight: 500;
   margin-bottom: 0.25em;
 }
@@ -93,6 +123,10 @@ body {
   background-color: $c_white;
   color: $c_dark-base;
 
+  @media print {
+    background-color: #fff;
+  }
+
   main {
     background-color: #fff;
   }
@@ -115,6 +149,14 @@ main {
   max-width: 1080px;
   padding: 0.5rem 3%;
   position: relative;
+
+  @media print {
+    margin: 0.25cm 0 0;
+    max-width: 100%;
+    padding: 0;
+    width: 100%;
+  }
+
 }
 
 
@@ -178,21 +220,12 @@ ul {
   justify-content: flex-end;
   position: sticky;
   top: 12px;
-
-  @media print {
-    display: none;
-  }
-
 }
 
 
 // PDF Download
 .pdf-download {
   float: right;
-
-  @media print {
-    display: none;
-  }
 
   .down-arrow {
     color: $c_primary-dark;
@@ -320,6 +353,11 @@ section {
 
   &.introduction {
     max-width: 800px;
+
+    .f_large {
+      font-weight: 400;
+    }
+
   }
 
   &.work-experience {
@@ -357,6 +395,9 @@ section {
   }
 
   &.references {
+    page-break-after: avoid;
+    page-break-before: auto;
+    page-break-inside: avoid;
 
     .references-intro {
       margin-bottom: 2rem;
@@ -370,4 +411,5 @@ footer {
   border-top: 4px solid $c_primary-dark;
   margin-top: 2rem;
   padding-top: 0.5rem;
+  page-break-before: avoid;
 }
