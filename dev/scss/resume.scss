@@ -376,6 +376,10 @@ section {
 
     }
 
+    details ul {
+      //page-break-inside: avoid;
+    }
+
   }
 
   &.education {
