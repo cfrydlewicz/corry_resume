@@ -231,7 +231,14 @@ ul {
 
 // PDF Download
 .pdf-download {
-  float: right;
+  margin-bottom: 0.25em;
+  text-align: right;
+
+  @media print, (min-width: 480px) {
+    // when the H1 and this can fit on the same line comfortably
+    float: right;
+    margin: 0;
+  }
 
   .down-arrow {
     color: $c_primary-dark;
@@ -243,23 +250,30 @@ ul {
 
 // Details Expanders
 details {
-  margin: 2em 0 2em 1rem;
+  margin: 2em 0 2em 0.5rem;
   max-width: 800px;
 
+  summary > div,
+  div[itemprop="description"] {
+    // consistent indentation
+    box-sizing: content-box;
+    padding-left: 1.25rem;
+  }
+
   summary {
-    align-items: start;
+    align-items: baseline;
     cursor: pointer;
     display: flex;
     flex-flow: row wrap;
-    gap: 0.5em;
     list-style: none;
     margin-bottom: 0.5em;
 
     &::before {
       content: '▶︎';
-      width: 1em;
       flex-shrink: 0;
+      margin-right: 0.25em;
       transition: 0.3s;
+      width: 1em;
     }
 
     &:hover {
@@ -272,11 +286,12 @@ details {
 
     * {
       display: inline;
+      line-height: 1.125;
     }
 
     > * {
       padding: 0;
-      width: calc(100% - 2em);
+      width: calc(100% - 1.25rem);
     }
 
   }
@@ -284,13 +299,6 @@ details {
   &[open] > summary::before {
     transform: rotate(90deg);
     transform-origin: 40% 45% 0;
-  }
-
-  // consistent indentation
-  summary > div,
-  div[itemprop="description"] {
-    box-sizing: content-box;
-    padding-left: 2em;
   }
 
   .job-summary {
@@ -316,7 +324,7 @@ blockquote::after {
 
 blockquote,
 figcaption {
-  margin-left: 2em;
+  margin-left: 0.75em;
   max-width: 800px;
 }
 
@@ -378,6 +386,11 @@ section {
         align-items: baseline;
         display: flex;
         justify-content: space-between;
+        margin-bottom: 0.5em;
+      }
+
+      time {
+        text-align: right;
       }
 
     }
@@ -391,7 +404,7 @@ section {
   &.education {
 
     p {
-      margin-left: 3em;
+      margin-left: 0.5rem;
     }
 
   }
