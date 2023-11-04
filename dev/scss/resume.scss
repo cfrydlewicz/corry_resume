@@ -143,7 +143,7 @@ body {
     color: $c_primary-dark;
 
     &:hover {
-      color: $c_accent-dark;
+      color: $c_accent-dim;
     }
 
   }
@@ -251,6 +251,10 @@ ul {
   .down-arrow {
     color: $c_primary-dark;
     font-weight: 700;
+  }
+
+  &:hover .down-arrow {
+    color: $c_accent-dim;
   }
 
 }
