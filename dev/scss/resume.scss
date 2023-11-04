@@ -90,6 +90,14 @@ strong {
 
 }
 
+.print-only {
+
+  @media not print {
+    display: none !important;
+  }
+
+}
+
 .hidden-keywords {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
@@ -274,6 +282,11 @@ details {
       margin-right: 0.25em;
       transition: 0.3s;
       width: 1em;
+
+      @media print {
+        display: none;
+      }
+
     }
 
     &:hover {
@@ -326,6 +339,11 @@ blockquote,
 figcaption {
   margin-left: 0.75em;
   max-width: 800px;
+
+  @media print, (min-width: 768px) {
+    margin-left: 2em;
+  }
+
 }
 
 blockquote {
