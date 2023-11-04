@@ -218,8 +218,14 @@ ul {
 .cta-container {
   display: flex;
   justify-content: flex-end;
+  pointer-events: none;  // prevent overlapped clickable elements from being blocked
   position: sticky;
   top: 12px;
+
+  [class^="btn_"] {
+    pointer-events: all;
+  }
+
 }
 
 
